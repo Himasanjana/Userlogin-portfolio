@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Portfolio</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Main container styling */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Link button styling */
+        a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #00b4db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            background-color: #0083b0;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Portfolio Page</h2>
+        <p>This is your portfolio. You can display content or links here.</p>
+        <a href="http://127.0.0.1:5501/" target="_blank">View Portfolio</a> <!-- Replace with actual portfolio link -->
+    </div>
+</body>
+</html>

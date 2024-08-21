@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e6e6fa, #dcd0ff); /* Lavender gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Container styling */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #555;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #00b4db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0083b0;
+        }
+
+        /* Forgot password button styling */
+        button {
+            background-color: transparent;
+            border: none;
+            color: #00b4db;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+            transition: color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            color: #0083b0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input[type="submit"] {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm" onsubmit="return adminLogin()">
+            <label for="adminUsername">Username:</label>
+            <input type="text" id="adminUsername" required>
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" required>
+            <input type="submit" value="Login">
+        </form>
+        <button onclick="alert('Please contact support to reset your password.')">Forgot Password?</button>
+    </div>
+
+    <script>
+        function adminLogin() {
+            const username = document.getElementById("adminUsername").value;
+            const password = document.getElementById("adminPassword").value;
+
+            // Predefined admin credentials
+            const adminUser = "admin";
+            const adminPass = "admin123";
+
+            if (username === adminUser && password === adminPass) {
+                // Redirect to admin dashboard with user data
+                const userData = {
+                    username: "user1",
+                    portfolio: "http://127.0.0.1:5501/" // Replace with actual portfolio link
+                };
+
+                // Store user data in localStorage
+                localStorage.setItem("userData", JSON.stringify(userData));
+
+                // Redirect to the dashboard
+                location.href = 'adminDashboard.html';
+                return false;
+            } else {
+                alert('Invalid credentials!');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Dashboard container styling */
+        .dashboard {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #6a11cb;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Portfolio link styling */
+        a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 30px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>Admin Dashboard</h2>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Portfolio Link</th>
+            </tr>
+            <tr>
+                <td id="username"></td>
+                <td><a id="portfolioLink" href="#">View Portfolio</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Get user data from localStorage
+        const userData = JSON.parse(localStorage.getItem("userData"));
+
+        if (userData) {
+            document.getElementById("username").textContent = userData.username;
+            const portfolioLink = document.getElementById("portfolioLink");
+            portfolioLink.href = userData.portfolio;
+            portfolioLink.textContent = "Portfolio";
+        } else {
+            alert("No user data found!");
+        }
+    </script>
+</body>
+</html>
